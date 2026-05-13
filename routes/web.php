@@ -50,3 +50,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('events', EventAdminController::class);
 });
+
+
+use App\Http\Controllers\PartnerController;
+
+Route::get('/admin/partners', [PartnerController::class, 'index']);
+
+Route::get('/admin/partners/create', [PartnerController::class, 'create']);
+Route::post('/admin/partners', [PartnerController::class, 'store']);
